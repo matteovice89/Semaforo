@@ -27,6 +27,7 @@ class semaforo:  # classe che va a definire i semafori per iniziare nord sud est
     def stampa(): #uso la lista dei semafori
         for i in lista:
             print(i)
+        print('------------------------------------------------------------')
 
 
 class strada:  # classe per la gestione delle strade. in base a come voglio regolare il traffico
@@ -41,8 +42,11 @@ semaforo_nord = semaforo("nord", False, False, False, False)
 semaforo_sud = semaforo("sud", False, False, False, False)
 semaforo_ovest = semaforo("ovest", False, False, False, False)
 semaforo_est = semaforo("est", False, False, False, False)
-lista=[semaforo_est,semaforo_ovest,semaforo_nord,semaforo_sud]#lita mi serve per stampare con un colpo unico lo stato
-
-semaforo.stampa()
-
+lista=[semaforo_est,semaforo_ovest,semaforo_nord,semaforo_sud]#lita mi serve per stampare e gestire con un colpo unico lo stato
+semaforo.stampa() #stampo lo stato in cui si trovano i semafori
+for i in lista: #accendo tutte le luci in modo da verificarare i led
+    i.verde=True
+    i.Giallo=True
+    i.rosso=True
+semaforo.stampa() #stampo per la verifica
 
