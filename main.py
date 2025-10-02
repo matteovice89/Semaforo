@@ -1,3 +1,5 @@
+from datetime import datetime #gestione orari
+import time  
 class semaforo():#classe che va a definire i semafori per iniziare nord sud est ovest
     def __init__(self, nome,verde,giallo,rosso,sensore):#colori sono true o false
         self.nome=nome
@@ -6,9 +8,11 @@ class semaforo():#classe che va a definire i semafori per iniziare nord sud est 
         self.rosso=rosso
         self.sensore=sensore
     
-    def accensione(self):#metodo gestione accensione e spegnimento semforo (lampeg. giallo)
-        pass
-    
+    def notturno(self):#semaforo in notturno(lampeg. giallo)
+        blink = True
+        time.sleep(3)
+        blink = False
+        
     def stato(self): #metodo gestisce cambio di stato delle luci
         pass
 
