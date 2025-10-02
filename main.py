@@ -14,13 +14,14 @@ class semaforo:  # classe che va a definire i semafori per iniziare nord sud est
         return f"SEMAFORO: {self.nome}, Verde: {self.verde}, Giallo: {self.verde}, Rosso: {self.rosso} "
 
     def notturno(self):  # semaforo in notturno(lampeg. giallo)
-        blink = True
-        print(f"Giallo {blink} ")
+        for i in lista_semafori:
+            i.giallo=True
+        semaforo.stampa()
         time.sleep(3)
-        blink = False
-        print(f"Giallo {blink} ")
-        blink = False
-
+        for i in lista_semafori:
+            i.giallo=False
+        semaforo.stampa()
+        time.sleep(3)        
     def stato(self):  # metodo gestisce cambio di stato delle luci
         pass
 
@@ -58,8 +59,8 @@ ora_attuale=datetime.now()
 while ora_attuale.hour >= ora_notturno:
     for i in lista_semafori: #inizializzo tutto a spento
         i.verde=False
-        i.Giallo=False
-        i.Rosso=False
+        i.giallo=False
+        i.rosso=False
     
     for i in lista_semafori: # ci siamo ma è molto miglirabile così mi fa schifo
         i.notturno()
