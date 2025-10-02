@@ -10,7 +10,10 @@ class semaforo():#classe che va a definire i semafori per iniziare nord sud est 
     
     def notturno(self):#semaforo in notturno(lampeg. giallo)
         blink = True
+        print(f'Giallo {blink} ')
         time.sleep(3)
+        blink = False
+        print(f'Giallo {blink} ')
         blink = False
         
     def stato(self): #metodo gestisce cambio di stato delle luci
@@ -27,3 +30,4 @@ semaforo_nord=semaforo('nord',False,False,False,False)
 semaforo_sud=semaforo('sud',False,False,False,False)
 semaforo_ovest=semaforo('ovest',False,False,False,False)
 semaforo_est=semaforo('est',False,False,False,False)
+
