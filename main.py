@@ -51,18 +51,16 @@ for i in lista_semafori: #accendo tutte le luci in modo da verificarare i led
     i.rosso=True
 semaforo.stampa() #stampo per la verifica
 
-ora_notturno=22
+ora_notturno=5
 ora_attuale=datetime.now()
-if ora_attuale.hour < ora_notturno:
-    
-    print('ok')
 
-while ora_attuale >= ora_notturno:
+
+while ora_attuale.hour >= ora_notturno:
     for i in lista_semafori: #inizializzo tutto a spento
         i.verde=False
         i.Giallo=False
         i.Rosso=False
     
-    for i in lista_semafori:
+    for i in lista_semafori: # ci siamo ma è molto miglirabile così mi fa schifo
         i.notturno()
 
