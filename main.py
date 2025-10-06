@@ -21,8 +21,9 @@ class semaforo:  # classe che va a definire i semafori per iniziare nord sud est
         for i in lista_semafori:
             i.giallo=False
         semaforo.stampa()
-        time.sleep(3)        
-    def stato(self):  # metodo gestisce cambio di stato delle luci
+        time.sleep(3)   
+        
+    def diurno(self):  # semaforo in diurno
         pass
 
     def stampa(): #uso la lista dei semafori
@@ -54,14 +55,3 @@ semaforo.stampa() #stampo per la verifica
 
 ora_notturno=5
 ora_attuale=datetime.now()
-
-
-while ora_attuale.hour >= ora_notturno:
-    for i in lista_semafori: #inizializzo tutto a spento
-        i.verde=False
-        i.giallo=False
-        i.rosso=False
-    
-    for i in lista_semafori: # ci siamo ma è molto miglirabile così mi fa schifo
-        i.notturno()
-
