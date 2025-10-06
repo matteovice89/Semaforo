@@ -1,6 +1,8 @@
 from datetime import datetime  # gestione orari
 import time
-
+tempo_semaforo=60
+tempo_lampeggio=3
+tempo_giallo=10
 
 class semaforo:  # classe che va a definire i semafori per iniziare nord sud est ovest
     def __init__(self, nome, verde, giallo, rosso, sensore):  # colori sono true o false
@@ -17,14 +19,24 @@ class semaforo:  # classe che va a definire i semafori per iniziare nord sud est
         for i in lista_semafori:
             i.giallo=True
         semaforo.stampa()
-        time.sleep(3)
+        time.sleep(tempo_lampeggio)
         for i in lista_semafori:
             i.giallo=False
         semaforo.stampa()
-        time.sleep(3)   
+        time.sleep(tempo_lampeggio)   
         
-    def diurno(self):  # semaforo in diurno
-        pass
+    def diurno():  
+        for i in lista_semafori: #ciclo 1 del semaforo
+            if i == semaforo_nord or i == semaforo_est:
+                i.rosso = True
+                i.verde = False
+                i.gialli= False
+            elif i == semaforo_sud or i == semaforo_ovest:
+                i.rosso = False
+                i.verde = True
+                i.gialli= False
+            semaforo.stampa()
+        time.sleep(tempo_semaforo) #ARRIVATO QUI
 
     def stampa(): #uso la lista dei semafori
         for i in lista_semafori:
@@ -57,4 +69,6 @@ ora_notturno_inizio=22
 orario_notturno_fine=5 #faccio il loop sulla diurno
 ora_attuale=datetime.now()
 
-while ora_attuale >= 5 or ora_attuale < 22:
+while ora_attuale.hour >= 5 or ora_attuale.hour < 22:
+    semaforo.diurno()
+    
