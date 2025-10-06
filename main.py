@@ -53,5 +53,8 @@ for i in lista_semafori: #accendo tutte le luci in modo da verificarare i led
     i.rosso=True
 semaforo.stampa() #stampo per la verifica
 
-ora_notturno=5
+ora_notturno_inizio=22
+orario_notturno_fine=5 #faccio il loop sulla diurno
 ora_attuale=datetime.now()
+
+while ora_attuale >= 5 or ora_attuale < 22:
