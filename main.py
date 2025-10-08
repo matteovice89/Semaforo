@@ -17,21 +17,22 @@ class semaforo:  # classe che va a definire i semafori per iniziare nord sud est
     def __str__(self):
         return f"SEMAFORO: {self.nome}, Verde: {self.verde}, Giallo: {self.verde}, Rosso: {self.rosso} "
 
-    def notturno(self):  # semaforo in notturno(lampeg. giallo)
-        for i in lista_semafori:#spengo tutti i semafori ciclo ciclo azzera anche energia residua
-            i.giallo=False
-            i.rosso=False
-            i.verde=False
+    def notturno():  # semaforo in notturno(lampeg. giallo)
+
         for i in lista_semafori:
             i.giallo = True
+            i.rosso=False
+            i.verde=False
         semaforo.stampa()
         time.sleep(tempo_lampeggio)
         for i in lista_semafori:
             i.giallo = False
+            i.rosso=False
+            i.verde=False
         semaforo.stampa()
         time.sleep(tempo_lampeggio)
 #nel metodo diurno studiare il prolungamento del rosso per liberare strada
-    def diurno(self): #con il ciclo ed if ho paura che poi a livello elettrico nella realtà si sfasi
+    def diurno(): #con il ciclo ed if ho paura che poi a livello elettrico nella realtà si sfasi
         for i in lista_nord_sud:
             i.rosso=True
             i.giallo=False
@@ -41,7 +42,7 @@ class semaforo:  # classe che va a definire i semafori per iniziare nord sud est
             i.giallo=False
             i.verde=True
         semaforo.stampa()
-        time.slepp(tempo_semaforo)
+        time.sleep(tempo_semaforo)
         for i in lista_ovest_est:
             i.rosso=False
             i.giallo=True
@@ -88,20 +89,22 @@ semaforo_est = semaforo("est", False, False, False, False)
 lista_semafori = [semaforo_est, semaforo_ovest, semaforo_nord, semaforo_sud]  # lita mi serve per stampare e gestire con un colpo unico lo stato
 lista_nord_sud=[semaforo_sud, semaforo_nord]
 lista_ovest_est=[semaforo_est, semaforo_ovest]
-semaforo.stampa()  # stampo lo stato in cui si trovano i semafori
+'''
+#semaforo.stampa()  # stampo lo stato in cui si trovano i semafori
 for i in lista_semafori:  # accendo tutte le luci in modo da verificarare i led
     i.verde = True
     i.Giallo = True
-    i.rosso = True
-semaforo.stampa()  # stampo per la verifica
+    i.rosso = True'''
+#semaforo.stampa()  # stampo per la verifica
 
-ora_notturno_inizio = 22
+ora_notturno_inizio = 24
 ora_notturno_fine = 5  # faccio il loop sulla diurno
-ora_attuale = datetime.now()
 
-while ora_attuale.hour >= ora_notturno_fine and ora_attuale.hour < ora_notturno_inizio:
-    semaforo.diurno()
-    ora_attuale=datetime.now()
-while ora_attuale.hour >= ora_notturno_inizio and ora_attuale.hour < ora_notturno_fine:
-    semaforo.notturno()
-    ora_attuale=datetime.now()
+
+while True:
+    ora_attuale = datetime.now()
+    if ora_attuale.hour >= ora_notturno_inizio or ora_attuale.hour<ora_notturno_fine:
+
+        semaforo.notturno()
+    else:
+        semaforo.diurno()
