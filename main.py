@@ -15,7 +15,7 @@ class semaforo:  # classe che va a definire i semafori per iniziare nord sud est
         self.sensore = sensore
 
     def __str__(self):
-        return f"SEMAFORO: {self.nome}, Verde: {self.verde}, Giallo: {self.verde}, Rosso: {self.rosso} "
+        return f"SEMAFORO: {self.nome}, Verde: {self.verde}, Giallo: {self.giallo}, Rosso: {self.rosso} "
 
     def notturno():  # semaforo in notturno(lampeg. giallo)
 
@@ -97,7 +97,7 @@ for i in lista_semafori:  # accendo tutte le luci in modo da verificarare i led
     i.rosso = True'''
 #semaforo.stampa()  # stampo per la verifica
 
-ora_notturno_inizio = 24
+ora_notturno_inizio = 22
 ora_notturno_fine = 5  # faccio il loop sulla diurno
 
 
